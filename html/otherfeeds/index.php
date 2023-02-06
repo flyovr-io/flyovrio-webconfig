@@ -66,29 +66,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if(isset($_POST['faSelect'])) {
         if ($_POST['faSelect'] == "Enable") {
-            $output = shell_exec('sudo /adsbexchange/webconfig/helpers/piaware-enable.sh ' . escapeshellarg($_POST['fa-id']));
+            $output = shell_exec('sudo /adsbfi/webconfig/helpers/piaware-enable.sh ' . escapeshellarg($_POST['fa-id']));
         }
         if ($_POST['faSelect'] == "Disable") {
-            $output = shell_exec('sudo /adsbexchange/webconfig/helpers/piaware-disable.sh');
+            $output = shell_exec('sudo /adsbfi/webconfig/helpers/piaware-disable.sh');
         }
     }
 
     if(isset($_POST['fr24Select'])) {
         if ($_POST['fr24Select'] == "Enable") {
-            $output = shell_exec('sudo /adsbexchange/webconfig/helpers/fr24-install.sh');
-            $output = shell_exec('sudo /adsbexchange/webconfig/helpers/fr24-enable.sh ' . escapeshellarg($_POST['fr24mail']) . ' ' . escapeshellarg($_POST['fr24key']));
+            $output = shell_exec('sudo /adsbfi/webconfig/helpers/fr24-install.sh');
+            $output = shell_exec('sudo /adsbfi/webconfig/helpers/fr24-enable.sh ' . escapeshellarg($_POST['fr24mail']) . ' ' . escapeshellarg($_POST['fr24key']));
         }
         if ($_POST['fr24Select'] == "Disable") {
-            $output = shell_exec('sudo /adsbexchange/webconfig/helpers/fr24-disable.sh');
+            $output = shell_exec('sudo /adsbfi/webconfig/helpers/fr24-disable.sh');
         }
     }
 
     if(isset($_POST['fr24Select2'])) {
         if ($_POST['fr24Select2'] == "Reset") {
-            $output = shell_exec('sudo /adsbexchange/webconfig/helpers/fr24-reset.sh');
+            $output = shell_exec('sudo /adsbfi/webconfig/helpers/fr24-reset.sh');
         }
         if ($_POST['fr24Select2'] == "Reinstall") {
-            $output = shell_exec('sudo /adsbexchange/webconfig/helpers/fr24-install.sh');
+            $output = shell_exec('sudo /adsbfi/webconfig/helpers/fr24-install.sh');
         }
     }
 
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <center>
 
-<h4 class="adsbx-green logo-margin"><img src="../img/adsbx-svg.svg" width="35"/>  ADSBexchange.com</h4>
+<h4 class="adsbx-green logo-margin"><img src="../img/adsbx-svg.svg" width="35"/>  adsb.fi</h4>
 <a class="btn btn-primary" href="../">(..back to main menu)</a><br /><br />
 
 <h3>Configure other feed clients:</h3>
@@ -144,7 +144,7 @@ ADSBexchange doesn't beleive in playing these games, and shares all data collect
     Current status:
     <br><br>
 <?php
-$output = shell_exec('sudo /adsbexchange/webconfig/helpers/piaware-status.sh 2>&1');
+$output = shell_exec('sudo /adsbfi/webconfig/helpers/piaware-status.sh 2>&1');
 echo "<pre>$output</pre>";
 ?>
     <br><br>
@@ -186,7 +186,7 @@ echo '<a href="'.$claim_url.'">'.$claim_url.'</a>';
     Current status:
     <br><br>
 <?php
-$output = shell_exec('sudo /adsbexchange/webconfig/helpers/fr24-status.sh 2>&1');
+$output = shell_exec('sudo /adsbfi/webconfig/helpers/fr24-status.sh 2>&1');
 echo "<pre>$output</pre>";
 ?>
     <br><br>
@@ -251,7 +251,7 @@ if (file_exists('/boot/adsbx-hardware')) {
     <h5>piaware log:</h5>
     <br><br>
 <?php
-$output = shell_exec('sudo /adsbexchange/webconfig/helpers/journal.sh -u piaware.service');
+$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u piaware.service');
 $output = wordwrap( $output, 160);
 echo "<pre>$output</pre>";
 ?>
@@ -261,7 +261,7 @@ echo "<pre>$output</pre>";
     <h5>fr24feed log:</h5>
     <br><br>
 <?php
-$output = shell_exec('sudo /adsbexchange/webconfig/helpers/journal.sh -u fr24feed.service');
+$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u fr24feed.service');
 $output = wordwrap( $output, 160);
 echo "<pre>$output</pre>";
 ?>
@@ -271,7 +271,7 @@ echo "<pre>$output</pre>";
     <h5>fr24feed signup log:</h5>
     <br><br>
 <?php
-$output = shell_exec('sudo /adsbexchange/webconfig/helpers/fr24-show-signup-log.sh');
+$output = shell_exec('sudo /adsbfi/webconfig/helpers/fr24-show-signup-log.sh');
 $output = wordwrap( $output, 160);
 echo "<pre>$output</pre>";
 ?>

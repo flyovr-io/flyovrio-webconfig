@@ -110,8 +110,8 @@ if ($_SESSION['authenticated'] != 1) {
 <center>
 
 
-			<h4 class="adsbx-green logo-margin"><img src="../img/adsbx-svg.svg" width="35"/>  ADSBexchange.com</h4>
-			<h6>ADSBX ADS-B Anywhere <br />version <?php echo file_get_contents("/boot/adsbx-version"); ?></h6>
+			<h4 class="adsbx-green logo-margin"><img src="../img/adsbx-svg.svg" width="35"/>  adsb.fi</h4>
+			<h6>ADSBX ADS-B Anywhere <br />version <?php echo file_get_contents("/boot/adsbfi-version"); ?></h6>
 			<a class="btn btn-primary" href="../">(..back to main menu)</a><br /><br />
 
 
@@ -159,8 +159,8 @@ if (!empty($_POST["DUMP1090"])) {
 
 	echo '<p>Restarting services... visit <a href="../index.php">this link</a> to verify changes in about 15 secs..</form></body></html>';
 
-	system('sudo /adsbexchange/webconfig/helpers/install-adsbconfig.sh > /dev/null 2>&1 &');
-	system('sudo /adsbexchange/webconfig/helpers/restart-services.sh > /dev/null 2>&1 &');
+	system('sudo /adsbfi/webconfig/helpers/install-adsbconfig.sh > /dev/null 2>&1 &');
+	system('sudo /adsbfi/webconfig/helpers/restart-services.sh > /dev/null 2>&1 &');
 	exit;
 } // end if $_post
 
@@ -298,28 +298,6 @@ if (!empty($_POST["DUMP1090"])) {
 
            if ($key[0] == "ZEROTIER") {
                 echo  str_replace('#','<br />',$zerotier."<br /><br />");
-                ?>
-                <select class="form-control" name="<?php echo $key[0]; ?>">
-                <?php
-                if(str_replace(array("\n", "\t", "\r"), '', strtoupper($key[1])) == "YES"){
-                ?>
-                    <option value="yes" selected>yes</option>
-                    <option value="no">no</option>
-                <?php
-                } else {
-                ?>
-                    <option value="yes">yes</option>
-                    <option value="no" selected>no</option>
-                <?php
-                }
-                ?>
-                </select>
-                <?php
-                echo '</tr></td><tr><td>';
-            }
-
-           if ($key[0] == "ZEROTIER_STANDALONE") {
-                echo  str_replace('#','<br />',$zerotier_standalone."<br /><br />");
                 ?>
                 <select class="form-control" name="<?php echo $key[0]; ?>">
                 <?php
