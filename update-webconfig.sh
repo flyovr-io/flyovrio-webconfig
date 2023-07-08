@@ -19,7 +19,7 @@ cd /tmp
 updir=/tmp/update-webconfig
 
 rm -rf $updir
-git clone --depth 1 https://github.com/tmantti/adsbfi-webconfig.git $updir
+git clone --depth 1 https://github.com/flyovr-io/flyovrio-webconfig.git $updir
 
 cd $updir
 bash install.sh dont_reset_config
@@ -28,7 +28,7 @@ bash install.sh dont_reset_config
 cd /tmp
 rm -rf $updir
 
-echo "8.2.$(date '+%y%m%d')" > /boot/adsbfi-version-webconfig
+echo "8.2.$(date '+%y%m%d')" > /boot/flyovrio-version-webconfig
 
 echo '--------------------------------------------'
 echo '        update-webconfig complete.          '
