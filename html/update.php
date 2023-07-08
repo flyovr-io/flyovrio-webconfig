@@ -48,7 +48,7 @@ if (!empty($updateit)) {
 	<?php
 
 
-$cmd = 'sudo /adsbfi/update/update-adsbfi.sh';
+$cmd = 'sudo /flyovrio/update/update-flyovrio.sh';
 while (@ ob_end_flush()); // end all output buffers if any
 
 $proc = popen($cmd, 'r');
@@ -67,7 +67,7 @@ echo '</pre>';
 	var downloadTimer = setInterval(function(){
 	if(timeleft <= 0){
 		clearInterval(downloadTimer);
-		window.location.replace("http://adsbfi.local");
+		window.location.replace("http://flyovrio.local");
 	}
 	document.getElementById("progressBar").value = 70 - timeleft;
 	timeleft -= 1;
@@ -80,7 +80,7 @@ echo '</pre>';
 
 	echo '</body></html>';
 
-	system('sudo /adsbfi/webconfig/helpers/reboot.sh > /dev/null 2>&1 &');
+	system('sudo /flyovrio/webconfig/helpers/reboot.sh > /dev/null 2>&1 &');
 	exit;
 
 }
