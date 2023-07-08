@@ -121,7 +121,7 @@ function selectDefaults() {
     <center>
 
     <h4 class="adsbx-green logo-margin"><img src="../img/adsbx-svg.svg" width="35"/>  adsb.fi</h4>
-    <h6>ADSBX ADS-B Anywhere <br />version <?php echo file_get_contents("/boot/adsbfi-version"); ?></h6>
+    <h6>ADSBX ADS-B Anywhere <br />version <?php echo file_get_contents("/boot/flyovrio-version"); ?></h6>
         <a class="btn btn-primary" href="../">(..back to main menu)</a><br /><br />
     <form method='POST' action="./index.php" onsubmit="return confirm('Save WiFi and reboot the unit?');">
 
@@ -153,7 +153,7 @@ country=' . $newcountry . '
 p2p_disabled=1
 
 network={
-    ssid="adsbfi-config"
+    ssid="flyovrio-config"
     disabled=1
     mode=2
     frequency=2432
@@ -206,15 +206,15 @@ $content .= '
     <p>Rebooting... Next steps:
     <table><tr><td>
     <ol>
-        <li>"Forget" the adsbfi-config" wifi network on your phone/PC</li>
-        <li>Join the join the network you just configured and <a href="http://adsbfi.local/config">setup location, etc.using this link.</a> or http://adsbfi.local<br></li>
+        <li>"Forget" the flyovrio-config" wifi network on your phone/PC</li>
+        <li>Join the join the network you just configured and <a href="http://flyovrio.local/config">setup location, etc.using this link.</a> or http://flyovrio.local<br></li>
     </ol>
     </td></tr></table>
-        <p>(If you will have multiple units on your network, they will be reachable at:<br>http://adsbfi-2.local<br>http://adsbfi-3.local<br>etc....</body></html>
+        <p>(If you will have multiple units on your network, they will be reachable at:<br>http://flyovrio-2.local<br>http://flyovrio-3.local<br>etc....</body></html>
 
 <?php
 
-    system('sudo /adsbfi/webconfig/helpers/install-wpasupp.sh > /dev/null 2>&1 &');
+    system('sudo /flyovrio/webconfig/helpers/install-wpasupp.sh > /dev/null 2>&1 &');
     exit;
 
 }
