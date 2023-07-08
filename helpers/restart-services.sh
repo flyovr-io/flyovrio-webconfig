@@ -9,9 +9,9 @@ restartIfEnabled() {
 
 systemctl restart webconfig
 
-adsbfi-first-run
+flyovrio-first-run
 
-services="readsb dump978-fa adsbfi-978 adsbfi-feed adsbfi-mlat webconfig leds"
+services="readsb dump978-fa flyovrio-978 flyovrio-feed flyovrio-mlat webconfig leds"
 for service in $services; do
     restartIfEnabled $service
 done
