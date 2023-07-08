@@ -5,7 +5,7 @@ if ($_SESSION['authenticated'] != 1) {
 	exit();
 }
 
-system('tail -n30 /adsbfi/adsbfi-update.log');
+system('tail -n30 /flyovrio/flyovrio-update.log');
 //echo($output);
 ?>
 
