@@ -120,7 +120,7 @@ echo "<pre>$output</pre>";
 
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/webconfig/helpers/zerotier_status.sh | head -n 1');
+$output = shell_exec('sudo /flyovrio/webconfig/helpers/zerotier_status.sh | head -n 1');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
@@ -146,10 +146,10 @@ echo "Since $upsince</pre></center>";
 
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/update/throttle.sh 2>&1');
+$output = shell_exec('sudo /flyovrio/update/throttle.sh 2>&1');
 echo "<pre>$output</pre>";
 echo "</td></tr><tr><td>";
-$temp = shell_exec('sudo /adsbfi/webconfig/helpers/show_temperature.sh');
+$temp = shell_exec('sudo /flyovrio/webconfig/helpers/show_temperature.sh');
 echo "<center><pre>CPU $temp";
 echo "Redline=80'C</pre></center>";
 ?>
@@ -165,9 +165,9 @@ echo "Redline=80'C</pre></center>";
 
 <table class="table table-dark"><tr><td>
 <?php
-$messages1090 = number_format(shell_exec('cat /run/adsbfi-feed/aircraft.json | jq .messages'));
-$messages978 = number_format(shell_exec('cat /run/adsbfi-978/aircraft.json | jq .messages'));
-$totaltracks = number_format(shell_exec('cat /run/adsbfi-feed/stats.json | jq .total.tracks.all'));
+$messages1090 = number_format(shell_exec('cat /run/flyovrio-feed/aircraft.json | jq .messages'));
+$messages978 = number_format(shell_exec('cat /run/flyovrio-978/aircraft.json | jq .messages'));
+$totaltracks = number_format(shell_exec('cat /run/flyovrio-feed/stats.json | jq .total.tracks.all'));
 echo "<pre>1090mhz: $messages1090<br>978mhz: $messages978<br>Tracks: $totaltracks</pre>";
 ?>
 </td></tr>
@@ -199,10 +199,10 @@ echo "<pre>$sdrserials</pre>";
 </tr>
 
 <?php
-$pos1min = shell_exec('cat /run/adsbfi-feed/stats.json | jq .last1min.position_count_by_type');
-$pos5min = shell_exec('cat /run/adsbfi-feed/stats.json | jq .last5min.position_count_by_type');
-$pos15min = shell_exec('cat /run/adsbfi-feed/stats.json | jq .last15min.position_count_by_type');
-$postotal = shell_exec('cat /run/adsbfi-feed/stats.json | jq .total.position_count_by_type');
+$pos1min = shell_exec('cat /run/flyovrio-feed/stats.json | jq .last1min.position_count_by_type');
+$pos5min = shell_exec('cat /run/flyovrio-feed/stats.json | jq .last5min.position_count_by_type');
+$pos15min = shell_exec('cat /run/flyovrio-feed/stats.json | jq .last15min.position_count_by_type');
+$postotal = shell_exec('cat /run/flyovrio-feed/stats.json | jq .total.position_count_by_type');
 ?>
 
 <tr>
@@ -278,7 +278,7 @@ echo "<pre>$output</pre>";
 <div class="table-responsive-lg">
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u readsb.service');
+$output = shell_exec('sudo /flyovrio/webconfig/helpers/journal.sh -u readsb.service');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
@@ -291,7 +291,7 @@ echo "<pre>$output</pre>";
 <div class="table-responsive-lg">
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u dump978-fa.service');
+$output = shell_exec('sudo /flyovrio/webconfig/helpers/journal.sh -u dump978-fa.service');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
@@ -304,7 +304,7 @@ echo "<pre>$output</pre>";
 <div class="table-responsive-lg">
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u autogain1090.service');
+$output = shell_exec('sudo /flyovrio/webconfig/helpers/journal.sh -u autogain1090.service');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
@@ -317,7 +317,7 @@ echo "<pre>$output</pre>";
 <div class="table-responsive-lg">
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u tar1090.service');
+$output = shell_exec('sudo /flyovrio/webconfig/helpers/journal.sh -u tar1090.service');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
@@ -328,51 +328,51 @@ echo "<pre>$output</pre>";
 
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u tar1090-978.service | /adsbfi/webconfig/sanitize-uuid.sh');
+$output = shell_exec('sudo /flyovrio/webconfig/helpers/journal.sh -u tar1090-978.service | /flyovrio/webconfig/sanitize-uuid.sh');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
 </table>
 
  <br>
- adsbfi-feed.service logs:
+ flyovrio-feed.service logs:
 
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u adsbfi-feed.service | /adsbfi/webconfig/sanitize-uuid.sh');
+$output = shell_exec('sudo /flyovrio/webconfig/helpers/journal.sh -u flyovrio-feed.service | /flyovrio/webconfig/sanitize-uuid.sh');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
 </table>
 
  <br>
- adsbfi-mlat.service logs:
+ flyovrio-mlat.service logs:
 
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('sudo /adsbfi/webconfig/helpers/journal.sh -u adsbfi-mlat.service | /adsbfi/webconfig/sanitize-uuid.sh');
+$output = shell_exec('sudo /flyovrio/webconfig/helpers/journal.sh -u flyovrio-mlat.service | /flyovrio/webconfig/sanitize-uuid.sh');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
 </table>
 
  <br>
- /boot/adsbfi-env
+ /boot/flyovrio-env
 
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('cat /boot/adsbfi-env');
+$output = shell_exec('cat /boot/flyovrio-env');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
 </table>
 
  <br>
- /boot/adsbfi-978env
+ /boot/flyovrio-978env
 
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('cat /boot/adsbfi-978env');
+$output = shell_exec('cat /boot/flyovrio-978env');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
@@ -383,7 +383,7 @@ echo "<pre>$output</pre>";
 
 <table class="table table-dark"><tr><td>
 <?php
-$output = shell_exec('cat /adsbfi/adsbfi-update.log');
+$output = shell_exec('cat /flyovrio/flyovrio-update.log');
 echo "<pre>$output</pre>";
 ?>
 </td></tr>
